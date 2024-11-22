@@ -11,7 +11,15 @@ from weakref import WeakValueDictionary
 if TYPE_CHECKING:
     from ._memo import TypeCheckMemo
 
-if sys.version_info >= (3, 13):
+if sys.version_info >= (3, 14):
+    from typing import get_args, get_origin
+
+    def evaluate_forwardref(forwardref: ForwardRef, memo: TypeCheckMemo) -> Any:
+        return forwardref.evaluate(
+            globals=memo.globals, locals=memo.locals, type_params=()
+        )
+
+elif sys.version_info >= (3, 13):
     from typing import get_args, get_origin
 
     def evaluate_forwardref(forwardref: ForwardRef, memo: TypeCheckMemo) -> Any:
