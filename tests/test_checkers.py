@@ -1397,15 +1397,15 @@ class TestRecursiveType:
                 "  float: is neither float or int\n"
                 "  bool: is not an instance of bool\n"
                 "  NoneType: is not an instance of NoneType\n"
-                "  List\\[JSONType\\]: is not a list\n"
-                "  Dict\\[str, JSONType\\]: value of key 'a' did not match any element "
+                "  List\\[(annotationlib\\.)?JSONType\\]: is not a list\n"
+                "  Dict\\[str, (annotationlib\\.)?JSONType\\]: value of key 'a' did not match any element "
                 "in the union:\n"
                 "    str: is not an instance of str\n"
                 "    float: is neither float or int\n"
                 "    bool: is not an instance of bool\n"
                 "    NoneType: is not an instance of NoneType\n"
-                "    List\\[JSONType\\]: is not a list\n"
-                "    Dict\\[str, JSONType\\]: is not a dict"
+                "    List\\[(annotationlib\\.)?JSONType\\]: is not a list\n"
+                "    Dict\\[str, (annotationlib\\.)?JSONType\\]: is not a dict"
             ),
         ):
             check_type({"a": (1, 2, 3)}, JSONType)
